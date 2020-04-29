@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Test app",
+  "description": "test",
+  "version": "1.0",
+  "icons": {
+    "16": "16x16.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://www.amazon.co.jp/*"],
+    "js": ["content.js"]
+  }],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "16x16.png",
+    "default_title": "test"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "offline_enabled": true,
+  "permissions": [
+    "tabs",
+    "background",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
